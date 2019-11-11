@@ -31,14 +31,31 @@ for (let i = 0; i < a.length; i++) {
 
 /*----------------------------------------------*/
 
+let tab = "";
+
+for (let property in first) {
+    tab += `.${first[property]}`;
+}
+
+console.log(tab)
+
 let test2 = "test text dghfghfGaGfdghfgh words";
 
 test2 = test2.replace(/[a]{1}/g, `r${first.a}b${first.b}c${first.c}d${first.d}e${first.e}`);
 
-let regex = RegExp(`[.${first.a}.${first.b}.${first.c}.${first.d}.${first.e}]{1}`, "g");
+let regex = RegExp(tab, "g");
+console.log(regex)
 
 if (regex.test(test2)) {
     console.log("yes");
-    test2 = test2.replace(RegExp, `a`);
+    test2 = test2.replace(regex, `a`);
     console.log(test2);
 }
+
+// const propOwn = Object.getOwnPropertyNames(first);
+// console.log(propOwn.length);
+
+// first.length = Object.getOwnPropertyNames(first).length;
+
+// console.log(first.length);
+
